@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+	root 'rand_nums#index'
   resources :rand_nums do
     collection do
         delete :destroy_all
