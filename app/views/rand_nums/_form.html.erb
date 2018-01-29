@@ -1,0 +1,41 @@
+<h2>Randomize Integer</h2>
+
+<button id="randomInt">Randomize It!</button>
+<button id="reset">Reset All Date!</button>
+
+
+
+<%= line_chart rand_nums_path %>
+
+
+<script type="text/javascript">
+
+
+
+  $('#randomInt').on('click' ,function(){
+  debugger;
+  console.log("abc"); 
+    var arr = [0,1,2,3,4,5,6,7,8,9,10];
+    var randNum = arr[Math.floor(Math.random() * arr.length)];
+    var rand = {
+      rand_nums: {
+        value: randNum
+      }
+    };
+    console.log(rand);
+    $.ajax({
+        url: 'http://localhost:3000/rand_nums', // url where to submit the request
+        type : "POST", // type of action POST || GET
+        data : rand, // post data || get data
+        dataType : 'json', // data type
+        success : function(result) {
+          console.log(result);
+          console.log('asdsad');
+        },
+         error: function(xhr, resp, text) {
+                console.log("Errors")
+                console.log(xhr, resp, text);
+            }
+        })
+})
+</script>
