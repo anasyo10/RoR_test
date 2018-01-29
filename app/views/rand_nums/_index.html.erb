@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<%= column_chart RandNum.group(:value).count %>
+
+<h1>Rand Nums</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rand_nums.each do |rand_num| %>
+      <tr>
+        <td><%= rand_num.value %></td>
+        <!-- <td><%= link_to 'Edit', edit_rand_num_path(rand_num) %></td> -->
+        <td><input class="rand_value" type="number" value="<%= rand_num.value %>"></td>
+        <td style="display: none;"><input class="rand_id" type="number" value="<%= rand_num.id %>"></td>
+        <td><button class="edit">Edit</button></td>
+        <td><%= link_to 'Destroy', rand_num, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<div>
+</div>
+<br>
