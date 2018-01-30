@@ -23,7 +23,7 @@
     }
     console.log(rand);
     $.ajax({
-        url: 'http://localhost:3000/rand_nums.js', // url where to submit the request
+        url: 'https://anasyo10-rortest.herokuapp.com/rand_nums.js', // url where to submit the request
         type : "POST", // type of action POST || GET
         data : rand, // post data || get data
       })
@@ -39,7 +39,7 @@ $('.edit').on('click' ,function(){
 }
 
     $.ajax({
-        url: 'http://localhost:3000/rand_nums/' + $('.rand_id').val(), // url where to submit the request
+        url: 'https://anasyo10-rortest.herokuapp.com/rand_nums/' + $('.rand_id').val(), // url where to submit the request
         type : "PUT", // type of action POST || GET
         data : rand_edit, // post data || get data
       })
