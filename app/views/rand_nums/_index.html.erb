@@ -14,17 +14,39 @@
   <tbody>
     <% @rand_nums.each do |rand_num| %>
       <tr>
-        <td><%= rand_num.value %></td>
-        <!-- <td><%= link_to 'Edit', edit_rand_num_path(rand_num) %></td> -->
-        <td><input class="rand_value" type="number" value="<%= rand_num.value %>"></td>
-        <td style="display: none;"><input class="rand_id" type="number" value="<%= rand_num.id %>"></td>
-        <td><button class="edit">Edit</button></td>
-        <td><%= link_to 'Destroy', rand_num, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="show" data-rand_id="<%= rand_num.id %>"><%= rand_num.value %></td>
+        <td><input id="rand-<%= rand_num.id %>" style="display:none;" type="number" value="<%= rand_num.value %>"></td>
       </tr>
-    <% end %>
+      <% end %>
   </tbody>
 </table>
 <br>
 <div>
 </div>
 <br>
+
+
+<script type="text/javascript">
+
+</script>
+
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Rand Nums</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
