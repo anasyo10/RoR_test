@@ -15,7 +15,7 @@
     <% @rand_nums.each do |rand_num| %>
       <tr>
         <td class="show" data-rand_id="<%= rand_num.id %>"><%= rand_num.value %></td>
-        <td><input id="rand-<%= rand_num.id %>" style="display:none;" type="number" value="<%= rand_num.value %>"></td>
+        <td><input id="rands-<%= rand_num.id %>" style="display:none;" type="number" value="<%= rand_num.value %>"></td>
       </tr>
       <% end %>
   </tbody>

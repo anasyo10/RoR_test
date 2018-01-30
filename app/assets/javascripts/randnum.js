@@ -17,8 +17,8 @@ $(document).on('click', '#randomInt' ,function() {
 
 $(document).on('click','td.show',function() {
   var id = $(this).data('rand_id');
-  var value = $('#rand-' + id).val();
-  var html = '<input id="rand-'+value+'" type="number" value="'+value+'" />';
+  var value = $('#rands-' + id).val();
+  var html = '<input id="rand-'+id+'" type="number" value="'+value+'" />';
   var footer = '<button data-rand_id='+id+' type="button" class="edit btn btn-primary">Edit changes</button>';
   footer += '<a href="/rand_nums/'+id+'" data-method="delete" data-confirm="Are you sure?" class="btn btn-secondary">Delete</a>';
   $('.modal-body').html(html);
@@ -33,36 +33,16 @@ $(document).on('click', '.edit' ,function() {
   var id = $(this).data('rand_id');
   rand = $('#rand-' + id).val();
   console.log(rand);
-// var modal = rand;
-// Get the <span> element that closes the modal
-// var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-// $(".edit").on('click', function() {
-    // modal.css('display', "block");
-// });
-
-// When the user clicks on <span> (x), close the modal
-// span.onclick = function() {
-    // modal.css('display', "none");
-// }
-
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-    // if (event.target == modal) {
-        // modal.css('display', "none");
-    // }
-// }
-var rand_edit = {
-  rand_nums: {
-    value: rand
+  var rand_edit = {
+    rand_nums: {
+      value: rand
+    }
   }
-}
-$.ajax({
-    url: '/rand_nums/' + id, // url where to submit the request
-    type : "PUT", // type of action POST || GET
-    data : rand_edit, // post data || get data
-  })
+  $.ajax({
+      url: '/rand_nums/' + id, // url where to submit the request
+      type : "PUT", // type of action POST || GET
+      data : rand_edit, // post data || get data
+    })
 });
 
 
